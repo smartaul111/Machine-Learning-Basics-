@@ -1,0 +1,33 @@
+# -*- coding: utf-8 -*-
+"""
+Created on Thu Oct  4 23:49:46 2018
+
+@author: 1606274
+"""
+
+import numpy as np
+import pandas as pd
+import sklearn
+import matplotlib.pyplot as plt
+
+data=pd.read_csv('train.csv')
+data2=pd.read_csv('test.csv')
+
+test=data2.iloc[:,1:21]
+x=data.iloc[:,0:20]
+y=data.iloc[:,20:21]
+
+y=np.ravel(y)
+
+from sklearn.preprocessing import StandardScaler
+sc_x=StandardScaler()
+x=sc_x.fit_transform(x)
+test=sc_x.transform(test)
+
+
+## Running  prediction datasets
+from sklearn import svm
+model=svm.SVC(kernel='sigmoid',gamma='auto',coef0=0.01,probability=True)
+model.fit(x,y)
+hello=model.predict(test)
+
