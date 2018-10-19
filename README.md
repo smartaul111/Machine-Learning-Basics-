@@ -1,2 +1,2 @@
 # Machine-Learning-Basics-
-Demo on Random datasets
+Supervised-Model-For-Mobile-Phone-Price-Classification
